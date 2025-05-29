@@ -112,7 +112,8 @@ export default App;
 */
 
 /************************************ handle th page reload *************************/
-
+//Note-1: the below code when form is submit the hole page is reload.
+/*
 import React from "react";
 const App = () => {
   return (
@@ -120,8 +121,59 @@ const App = () => {
       <p className="text-center text-blue-500 mt-2">
         This is the handle the Page reloading the concept
       </p>
-      <div className="space-x-4 mt-16 flex justify-center bg-violet-500">
-         <input type="button" value="" />
+      <div className="space-x-4 mt-16 flex justify-center">
+        <form
+          onSubmit={() => alert("Form submitted successfully.")}
+          className="space-x-4"
+        >
+          <input
+            type="text"
+            placeholder="Enter the name..."
+            className="border rounded-sm py-1.5 px-1 outline-0"
+          />
+          <button
+            type="submit"
+            className="bg-green-500 py-2 px-4 cursor-pointer rounded-sm font-semibold text-white"
+          >
+            Click me
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default App;
+*/
+
+//Note-1: the below code when form is submit the hole page is not reload.
+import React from "react";
+const App = () => {
+  return (
+    <>
+      <p className="text-center text-blue-500 mt-2">
+        This is the handle the Page reloading the concept
+      </p>
+      <div className="space-x-4 mt-16 flex justify-center">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert("Form submitted successfully.");
+          }}
+          className="space-x-4"
+        >
+          <input
+            type="text"
+            placeholder="Enter the name..."
+            className="border rounded-sm py-1.5 px-1 outline-0"
+          />
+          <button
+            type="submit"
+            className="bg-green-500 py-2 px-4 cursor-pointer rounded-sm font-semibold text-white"
+          >
+            Click me
+          </button>
+        </form>
       </div>
     </>
   );
