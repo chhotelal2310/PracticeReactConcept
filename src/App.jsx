@@ -147,6 +147,7 @@ export default App;
 */
 
 //Note-1: the below code when form is submit the hole page is not reload.
+/*
 import React from "react";
 const App = () => {
   return (
@@ -177,6 +178,21 @@ const App = () => {
       </div>
     </>
   );
+};
+
+export default App;
+*/
+
+/******************************************** Formik Practice ************************** */
+import React from "react";
+import FormikPractice from "./components/FormikPractice";
+
+const App = () => {
+  return (
+    <>
+      <FormikPractice />
+    </>
+  )
 };
 
 export default App;
