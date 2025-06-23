@@ -184,8 +184,8 @@ export default App;
 */
 
 /******************************************** Formik Practice ************************** */
-import React from "react";
-import FormikPractice from "./components/FormikPractice";
+// import React from "react";
+// import FormikPractice from "./components/FormikPractice";
 /*
 const App = () => {
   return (
