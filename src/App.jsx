@@ -184,28 +184,13 @@ export default App;
 */
 
 /******************************************** Formik Practice ************************** */
-// import React from "react";
-// import FormikPractice from "./components/FormikPractice";
-/*
+import React from "react";
+import FormikPractice from "./components/FormikPractice";
+
 const App = () => {
   return (
     <>
       <FormikPractice />
-    </>
-  )
-};
-
-export default App;
-*/
-
-/******************************* React Revision **********************************/
-import React from "react";
-import FormByLB from "./components/FormByLoveBabber/FormByLB";
-
-const App = () => {
-  return (
-    <>
-      <FormByLB />
     </>
   );
 };
