@@ -198,14 +198,16 @@ const App = () => {
 export default App;
 */
 
-
 /******************************* React Revision **********************************/
-import React from 'react'
+import React from "react";
+import FormByLB from "./components/FormByLoveBabber/FormByLB";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <FormByLB />
+    </>
+  );
+};
 
-export default App
+export default App;
