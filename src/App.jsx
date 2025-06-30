@@ -184,13 +184,29 @@ export default App;
 */
 
 /******************************************** Formik Practice ************************** */
+/*
 import React from "react";
-import FormikPractice from "./components/FormikPractice";
+import FormikPractice from "./components/PracticeByMe/FormikPractice";
 
 const App = () => {
   return (
     <>
       <FormikPractice />
+    </>
+  );
+};
+
+export default App;
+*/
+
+/********************************** Routing *****************************/
+import React from "react";
+import ReactRouting from "./Pages/RotingByLoveBabber/Routes/ReactRouting";
+
+const App = () => {
+  return (
+    <>
+      <ReactRouting />
     </>
   );
 };
