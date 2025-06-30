@@ -212,6 +212,7 @@
 
 /*************************************************** Formik with array ******************************************************/
 
+import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "yup-phone";
@@ -221,107 +222,136 @@ const FormikPractice = () => {
     initialValues: {
       employees: [{ firstName: "", lastName: "", email: "" }],
     },
-    validationSchema: Yup.object({
-      employees: Yup.array().of({
-        firstName: Yup.string().required("First name is required"),
-        lastName: Yup.string().required("Last name is required"),
-        email: Yup.string()
-          .email("Invail email address")
-          .required("Email is required"),
-      }),
+    validationSchema: Yup.object().shape({
+      employees: Yup.array().of(
+        Yup.object().shape({
+          firstName: Yup.string().required("First name is required"),
+          lastName: Yup.string().required("Last name is required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Email is required"),
+        })
+      ),
     }),
     onSubmit: (values) => {
+      alert("Form is submitted");
       console.log(values, ">>>>>>>>>>>>>>>>>");
+      formik.resetForm();
     },
   });
 
+  const handleAddField = () => {
+    const updatedEmployees = [...formik.values.employees];
+    updatedEmployees.push({ firstName: "", lastName: "", email: "" });
+    formik.setFieldValue("employees", updatedEmployees);
+  };
+
+  const handleRemoveField = (index) => {
+    const updatedEmployees = formik.values.employees?.filter(
+      (_, idx) => idx !== index
+    );
+    formik.setFieldValue("employees", updatedEmployees);
+  };
+
   return (
     <>
-      <div className="w-full flex justify-center items-center">
-        {formik?.values?.employees?.map((item, index) => {
-          <div
-            key={index}
-            className="w-1/5 flex flex-col justify-center items-center mt-10 space-y-4 p-3 border rounded-lg border-gray-400"
-          >
-            <h2 className="text-start w-60 font-medium">E-1</h2>
-            <div>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Enter the firstName"
-                className="border rounded-sm w-60 px-2 py-1 border-gray-400"
-                value={formik.values.firstName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.firstName && formik.errors.firstName && (
-                <p className="text-red-500 text-xs mt-1">
-                  {formik.errors.firstName}
-                </p>
-              )}
-            </div>
+      <div className="w-full flex flex-col justify-center items-center">
+        {formik?.values?.employees?.map((_, index) => {
+          return (
+            <React.Fragment key={index}>
+              <div className="w-1/5 flex flex-col justify-center items-center mt-10 space-y-4 p-3 border rounded-lg border-gray-400">
+                <h2 className="text-start w-60 font-medium">{`E-${
+                  index + 1
+                }`}</h2>
+                <div>
+                  <input
+                    type="text"
+                    name={`employees[${index}].firstName`}
+                    placeholder="Enter the firstName"
+                    className="border rounded-sm w-60 px-2 py-1 border-gray-400"
+                    value={formik?.values?.employees[index]?.firstName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.employees?.[index]?.firstName &&
+                    formik.errors.employees?.[index]?.firstName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {formik.errors.employees?.[index]?.firstName}
+                      </p>
+                    )}
+                </div>
 
-            <div>
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Enter the lastName"
-                className="border rounded-sm w-60 px-2 py-1 border-gray-400"
-                value={formik.values.lastName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.lastName && formik.errors.lastName && (
-                <p className="text-red-500 text-xs mt-1">
-                  {formik.errors.lastName}
-                </p>
-              )}
-            </div>
+                <div>
+                  <input
+                    type="text"
+                    name={`employees[${index}].lastName`}
+                    placeholder="Enter the lastName"
+                    className="border rounded-sm w-60 px-2 py-1 border-gray-400"
+                    value={formik?.values?.employees?.[index]?.lastName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik?.touched?.employees?.[index]?.lastName &&
+                    formik?.errors?.employees?.[index]?.lastName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {formik?.errors?.employees?.[index]?.lastName}
+                      </p>
+                    )}
+                </div>
 
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter the email"
-                className="border rounded-sm w-60 px-2 py-1 border-gray-400"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.email && formik.errors.email && (
-                <p className="text-red-500 text-xs mt-1">
-                  {formik.errors.email}
-                </p>
-              )}
-            </div>
-          </div>;
+                <div>
+                  <input
+                    type="email"
+                    name={`employees[${index}].email`}
+                    placeholder="Enter the email"
+                    className="border rounded-sm w-60 px-2 py-1 border-gray-400"
+                    value={formik?.values?.employees?.[index]?.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik?.touched?.employees?.[index]?.email &&
+                    formik?.errors?.employees?.[index]?.email && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {formik?.errors?.employees?.[index]?.email}
+                      </p>
+                    )}
+                </div>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3 mt-2">
+                {formik?.values?.employees?.length - 1 === index && (
+                  <>
+                    <button
+                      type="button"
+                      className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-blue-400 border-gray-400"
+                      onClick={formik.handleSubmit}
+                    >
+                      Submit
+                    </button>
+
+                    <button
+                      type="button"
+                      className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-green-500 border-gray-400"
+                      onClick={handleAddField}
+                    >
+                      +ADD
+                    </button>
+                  </>
+                )}
+
+                {formik?.values?.employees?.length > 1 && (
+                  <button
+                    type="button"
+                    className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-red-500 border-gray-400"
+                    onClick={() => handleRemoveField(index)}
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            </React.Fragment>
+          );
         })}
-      </div>
-
-      <div className="flex justify-center items-center space-x-3 mt-10">
-        <button
-          type="button"
-          className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-blue-400 border-gray-400"
-          onClick={formik.handleSubmit}
-        >
-          Submit
-        </button>
-
-        <button
-          type="button"
-          className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-green-500 border-gray-400"
-          // onClick={formik.handleSubmit}
-        >
-          +ADD
-        </button>
-
-        <button
-          type="button"
-          className="border px-6 py-2 text-center rounded-sm cursor-pointer bg-red-500 border-gray-400"
-          // onClick={formik.handleSubmit}
-        >
-          Remove
-        </button>
       </div>
     </>
   );
