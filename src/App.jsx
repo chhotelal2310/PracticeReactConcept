@@ -201,7 +201,7 @@ export default App;
 
 /********************************** Routing *****************************/
 import React from "react";
-import ReactRouting from "./Pages/RotingByLoveBabber/Routes/ReactRouting";
+import ReactRouting from "./Pages/RotingByLB/Routes/ReactRouting";
 
 const App = () => {
   return (
