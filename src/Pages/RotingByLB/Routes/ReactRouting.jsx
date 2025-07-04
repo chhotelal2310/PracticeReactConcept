@@ -6,8 +6,12 @@ import About from "../RouteComponents/About";
 import Labs from "../RouteComponents/Labs";
 import NotFound from "../RouteComponents/NotFound";
 import MainHeader from "../RouteComponents/MainHeader";
+import PrivateRoute from "../RouteComponents/PrivateRoute";
+import Login from "../../Login/Login";
 
 const ReactRouting = () => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
   return (
     <BrowserRouter>
       <nav>
@@ -43,14 +47,16 @@ const ReactRouting = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/labs"
-              className={({ isActive }) =>
-                isActive ? "text-blue-700 font-bold" : ""
-              }
-            >
-              Labs
-            </NavLink>
+            {token && (
+              <NavLink
+                to="/labs"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-700 font-bold" : ""
+                }
+              >
+                Labs
+              </NavLink>
+            )}
           </li>
         </ul>
       </nav>
@@ -69,12 +75,19 @@ const ReactRouting = () => {
 
       {/* *********************************Nested routing************************************* */}
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainHeader />}>
-          {/*Hopme page is the default route*/}
           <Route index element={<Home />} />
           <Route path="/support" element={<Support />} />
           <Route path="/about" element={<About />} />
-          <Route path="/labs" element={<Labs />} />
+          <Route
+            path="/labs"
+            element={
+              <PrivateRoute>
+                <Labs />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
