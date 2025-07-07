@@ -200,6 +200,7 @@ export default App;
 */
 
 /********************************** Routing *****************************/
+/*
 import React from "react";
 import ReactRouting from "./Pages/RotingByLB/Routes/ReactRouting";
 
@@ -207,6 +208,21 @@ const App = () => {
   return (
     <>
       <ReactRouting />
+    </>
+  );
+};
+
+export default App;
+*/
+
+/************************************** Custom Hooks ***************************/
+import React from "react";
+import RandamGif from "./Pages/RandomGif/RandamGif";
+
+const App = () => {
+  return (
+    <>
+      <RandamGif />
     </>
   );
 };
