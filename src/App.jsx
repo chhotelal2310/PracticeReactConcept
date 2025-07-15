@@ -216,6 +216,7 @@ export default App;
 */
 
 /************************************** Custom Hooks ***************************/
+/*
 import React from "react";
 import RandamGif from "./Pages/RandomGif/RandamGif";
 
@@ -223,6 +224,34 @@ const App = () => {
   return (
     <>
       <RandamGif />
+    </>
+  );
+};
+
+export default App;
+*/
+
+/*************************************** Context AP ************************/
+import React, { useContext, useEffect } from "react";
+import Blogs from "./Pages/contextAPI/Blogs";
+import { AppContext } from "./Pages/contextAPI/context/AppContext";
+import Pagination from "./Pages/contextAPI/Pagination";
+import Header from "./Pages/contextAPI/Header";
+
+const App = () => {
+  const { fetchBlogPosts } = useContext(AppContext);
+
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  return (
+    <>
+      <div>
+        <Header />
+        <Blogs />
+        <Pagination />
+      </div>
     </>
   );
 };
