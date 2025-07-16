@@ -232,7 +232,8 @@ export default App;
 */
 
 /*************************************** Context AP ************************/
-import React, { useContext, useEffect } from "react";
+
+/*import React, { useContext, useEffect } from "react";
 import Blogs from "./Pages/contextAPI/Blogs";
 import { AppContext } from "./Pages/contextAPI/context/AppContext";
 import Pagination from "./Pages/contextAPI/Pagination";
@@ -252,6 +253,22 @@ const App = () => {
         <Blogs />
         <Pagination />
       </div>
+    </>
+  );
+};
+
+export default App;
+
+*/
+
+/*************************************** Redux ************************/
+import React from "react";
+import Counter from "./Pages/redux/Counter";
+
+const App = () => {
+  return (
+    <>
+      <Counter />
     </>
   );
 };
