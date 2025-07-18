@@ -5,14 +5,15 @@ const ShoppingCard = () => {
     <>
       <div className="w-full">
         <div className="w-full flex justify-center mt-10">
-          <div className="w-full max-w-65  rounded-lg px-3 py-3 border bg-gray-50 border-gray-200">
+          <div className="w-full max-w-65  rounded-lg px-3 py-3 border bg-gray-50 border-gray-200 shadow-[0px_1px_5px_1px_rgba(0,_0,_0,_0.1)]">
             <div className="w-full px-6 space-y-3">
-              <h3 className="text-[17px] font-bold">India's biggest ...</h3>
+              <h3 className="text-[17px] font-semibold">
+                India's India's biggest ...
+              </h3>
               <p className="text-sm">
-                Shopping Card means a retailer and retail group branded plastic
-                group branded plastic...
+                Shopping Card means a retailer and retail branded plastic...
               </p>
-              <div className="w-full h-40 overflow-hidden">
+              <div className="w-full h-42 overflow-hidden">
                 <img
                   src="./src/assets/bag.webp"
                   alt="Image"
