@@ -24,6 +24,8 @@ const App = () => {
 export default App;
 */
 
+import ShoppingCard from "./Pages/ShoppingCard";
+
 /************************* Reading props in event handlers***************/
 /*
 import React from "react";
@@ -262,13 +264,72 @@ export default App;
 */
 
 /*************************************** Redux ************************/
-import React from "react";
-import Counter from "./Pages/redux/Counter";
+
+// import React from "react";
+// import Counter from "./Pages/redux/Counter";
+
+// const App = () => {
+//   //   const users = [
+//   //   { id: 1, name: "Alice", email: "alice@example.com", role: "Admin" },
+//   //   { id: 2, name: "Bob", email: "bob@example.com", role: "Editor" },
+//   //   { id: 3, name: "Charlie", email: "charlie@example.com", role: "Viewer" },
+//   // ];
+//   const users = Array.from({ length: 200 }, (_, i) => ({
+//     id: i + 1,
+//     name: `User${i + 1}`,
+//     email: `user${i + 1}@example.com`,
+//     role: ["Admin", "Editor", "Viewer"][i % 3], // Rotate roles
+//   }));
+
+//   console.log(users);
+
+//   return (
+//     <>
+//       {/* <Counter /> */}
+
+//       {/* <div className="p-4">
+//       <div
+//         className="overflow-x-auto w-full max-h-100
+//           [&::-webkit-scrollbar]:h-4
+//           [&::-webkit-scrollbar]:w-3
+//           [&::-webkit-scrollbar-track]:bg-gray-200
+//           [&::-webkit-scrollbar-thumb]:bg-gray-400
+//           [&::-webkit-scrollbar-thumb]:rounded-full"
+//       >
+//         <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm">
+//           <thead className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200">
+//             <tr>
+//               <th className="px-4 py-3 text-left">ID</th>
+//               <th className="px-4 py-3 text-left">Name</th>
+//               <th className="px-4 py-3 text-left">Email</th>
+//               <th className="px-4 py-3 text-left">Role</th>
+//             </tr>
+//           </thead>
+//           <tbody className="text-gray-700 dark:text-gray-300">
+//             {users.map((user) => (
+//               <tr key={user.id} className="border-t border-gray-200 dark:border-gray-700">
+//                 <td className="px-4 py-2">{user.id}</td>
+//                 <td className="px-4 py-2">{user.name}</td>
+//                 <td className="px-4 py-2">{user.email}</td>
+//                 <td className="px-4 py-2">{user.role}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div> */}
+//     </>
+//   );
+// };
+
+// export default App;
+
+/************************************* Sopping Card Application ********************************** */
 
 const App = () => {
   return (
     <>
-      <Counter />
+      <ShoppingCard />
     </>
   );
 };
