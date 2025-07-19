@@ -14,14 +14,30 @@ createRoot(document.getElementById("root")).render(
 */
 
 /****************************************** Redux ******************************/
+// import { createRoot } from "react-dom/client";
+// import "./index.css";
+// import App from "./App.jsx";
+// import { Provider } from "react-redux";
+// import { store } from "./Pages/redux/Store.js";
+
+// createRoot(document.getElementById("root")).render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>
+// );
+
+
+
+/****************************************** Shopping Applications ******************************/
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import { store } from "./Pages/redux/Store.js";
+import { store } from "./Pages/ShoppingApplication/redux/Store.js";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />
   </Provider>
 );
+

@@ -24,8 +24,6 @@ const App = () => {
 export default App;
 */
 
-import ShoppingCard from "./Pages/ShoppingCard";
-
 /************************* Reading props in event handlers***************/
 /*
 import React from "react";
@@ -326,9 +324,24 @@ export default App;
 
 /************************************* Sopping Card Application ********************************** */
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Pages/ShoppingApplication/components/Navbar";
+import ShoppingCard from "./Pages/ShoppingApplication/components/ShoppingCard";
+import CardDetails from "./Pages/ShoppingApplication/components/CardDetails";
+import Home from "./Pages/ShoppingApplication/components/Home";
 const App = () => {
   return (
     <>
+      <div>
+        <Navbar />
+      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/card" element={<CardDetails />} />
+        </Routes>
+      </BrowserRouter>
+
       <ShoppingCard />
     </>
   );

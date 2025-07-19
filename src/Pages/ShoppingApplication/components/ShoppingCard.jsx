@@ -13,7 +13,7 @@ const ShoppingCard = () => {
               <p className="text-sm">
                 Shopping Card means a retailer and retail branded plastic...
               </p>
-              <div className="w-full h-42 overflow-hidden">
+              <div className="w-full h-44 overflow-hidden">
                 <img
                   src="./src/assets/bag.webp"
                   alt="Image"
@@ -25,7 +25,7 @@ const ShoppingCard = () => {
               <span className="text-base font-semibold text-green-600">
                 $109.95
               </span>
-              <button className="border border-black text-xs px-2.5 py-0.5 rounded-xl cursor-pointer font-bold">
+              <button className="border border-black text-xs px-2.5 py-1 rounded-xl cursor-pointer font-bold">
                 ADD TO CARD
               </button>
             </div>
