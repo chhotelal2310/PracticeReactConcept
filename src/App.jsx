@@ -324,25 +324,21 @@ export default App;
 
 /************************************* Sopping Card Application ********************************** */
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./Pages/ShoppingApplication/components/Navbar";
-import ShoppingCard from "./Pages/ShoppingApplication/components/ShoppingCard";
-import CardDetails from "./Pages/ShoppingApplication/components/CardDetails";
-import Home from "./Pages/ShoppingApplication/components/Home";
+
+import Home from "./Pages/ShoppingApplication/Pages/Home";
+import CardDetails from "./Pages/ShoppingApplication/Pages/CardDetails";
 const App = () => {
   return (
     <>
       <div>
         <Navbar />
       </div>
-      <BrowserRouter>
-        <Routes>
+       <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/card" element={<CardDetails />} />
         </Routes>
-      </BrowserRouter>
-
-      <ShoppingCard />
     </>
   );
 };
