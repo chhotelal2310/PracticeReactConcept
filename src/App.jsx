@@ -324,21 +324,34 @@ export default App;
 
 /************************************* Sopping Card Application ********************************** */
 
-import { Route, Routes } from "react-router-dom";
-import Navbar from "./Pages/ShoppingApplication/components/Navbar";
+// import { Route, Routes } from "react-router-dom";
+// import Navbar from "./Pages/ShoppingApplication/components/Navbar";
 
-import Home from "./Pages/ShoppingApplication/Pages/Home";
-import CardDetails from "./Pages/ShoppingApplication/Pages/CardDetails";
+// import Home from "./Pages/ShoppingApplication/Pages/Home";
+// import CardDetails from "./Pages/ShoppingApplication/Pages/CardDetails";
+// const App = () => {
+//   return (
+//     <>
+//       <div>
+//         <Navbar />
+//       </div>
+//        <Routes>
+//           <Route path="/" element={<Home/>}/>
+//           <Route path="/card" element={<CardDetails />} />
+//         </Routes>
+//     </>
+//   );
+// };
+
+// export default App;
+
+import React from "react";
+import BarChart from "./Pages/BarCharPractices/BarChart";
+
 const App = () => {
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
-       <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/card" element={<CardDetails />} />
-        </Routes>
+      <BarChart />
     </>
   );
 };
