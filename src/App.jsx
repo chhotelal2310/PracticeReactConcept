@@ -347,11 +347,13 @@ export default App;
 
 import React from "react";
 import BarChart from "./Pages/BarCharPractices/BarChart";
+import LineChart from "./Pages/BarCharPractices/LineChart";
 
 const App = () => {
   return (
     <>
-      <BarChart />
+      {/* <BarChart /> */}
+      <LineChart />
     </>
   );
 };
