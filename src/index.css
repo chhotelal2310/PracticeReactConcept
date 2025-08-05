@@ -1,15 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playwrite+DE+VA+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playwrite+DE+VA+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto Serif", serif;
+  --color-main: #8161cc;
+  --color-white: #ffffff;
+  --color-background: #161d26;
+  --color-subcard: #12181f;
+  --color-card: #0b0e13;
+  --color-secondText: #a4a8ab;
+  --color-up: #0caf60;
+  --color-Sub-cardopacity: #12181f80;
+  --color-GraysWhite: #ffffff;
+  --color-UpContainer: #1f2f2f;
+  --color-upopacity: #0caf6066;
+  --color-PendingContainer: #f7931a26;
+  --color-Pending: #fb774a;
+  --color-DownContainer: #332229;
+  --color-Down: #ef5350;
+  --color-text: #c3cddb;
+}
 
 /****************************************Chrome, Safari, Edge, Opera ******************************************/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-@theme{
-  --font-roboto:"Roboto Serif", serif;
 }
 
 /************************************************ Firefox *****************************************************/

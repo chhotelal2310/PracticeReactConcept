@@ -33,7 +33,7 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block mb-1 text-gray-600">Email</label>
+            <label className="block mb-1 text-gray-600 bg-">Email</label>
             <input
               type="email"
               name="email"
