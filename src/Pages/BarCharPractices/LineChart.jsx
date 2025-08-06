@@ -4,12 +4,24 @@ const LineChart = () => {
   const options = {
     colors: ["#EE4B2B", "#465fff"],
 
-    plotOptions: {
-      bar: {
-        dataLabels: {
-          position: "top",
-        },
-      },
+    // plotOptions: {
+    //   bar: {
+    //     dataLabels: {
+    //       position: "top",
+    //     },
+    //   },
+    // },
+
+    // chart: {
+    //   fontFamily: "Outfit, sans-serif",
+    //   height: 310,
+    //   type: "line", // Set the chart type to 'line'
+    //   toolbar: {
+    //     show: false, // Hide chart toolbar
+    //   },
+    // },
+    dataLabels: {
+      enabled: false, // Disable data labels
     },
 
     yaxis: {
@@ -63,14 +75,33 @@ const LineChart = () => {
       },
     },
 
+    legend: {
+      show: true,
+      position: "top",
+      horizontalAlign: "center",
+      fontFamily: "Outfit",
+      onItemClick: {
+        toggleDataSeries: true,
+      },
+      onItemHover: {
+        highlightDataSeries: false,
+      },
+    },
+
     stroke: {
       curve: "smooth",
       // curve: "straight",
       // curve: "stepline",
+      width: 4,
     },
-    markers: {
-      size: 10,
-    },
+
+    // fill: {
+    //   type: "gradient" / "solid" / "pattern" / "image",
+    // },
+
+    // markers: {
+    //   size: 4,
+    // },
 
     /* The below properties are used to when pass the at list to series data*/
     // legend: {

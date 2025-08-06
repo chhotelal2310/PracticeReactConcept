@@ -103,13 +103,27 @@ import Chart from "react-apexcharts";
 
 const BarChart = () => {
   const options = {
-    colors: ["#EE4B2B", "#465fff"],
+    colors: [
+      "#EE4B2B", // red
+      "#465fff", // blue
+      "#FFD700", // gold
+      "#32CD32", // lime green
+      "#FF69B4", // hot pink
+      "#8A2BE2", // blue violet
+      "#00CED1", // dark turquoise
+      "#FFA500", // orange
+      "#A52A2A", // brown
+      "#7FFF00", // chartreuse
+      "#FF4500", // orange red
+      "#20B2AA", // light sea green
+    ],
 
     plotOptions: {
       bar: {
         dataLabels: {
           position: "top",
         },
+        distributed: true,
       },
     },
 

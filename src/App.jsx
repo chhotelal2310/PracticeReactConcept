@@ -348,12 +348,16 @@ export default App;
 import React from "react";
 import BarChart from "./Pages/BarCharPractices/BarChart";
 import LineChart from "./Pages/BarCharPractices/LineChart";
+import AreaChart from "./Pages/BarCharPractices/AreaChart";
+import PIChart from "./Pages/BarCharPractices/PIchart";
 
 const App = () => {
   return (
     <>
       {/* <BarChart /> */}
-      <LineChart />
+      {/* <LineChart /> */}
+      {/* <AreaChart /> */}
+      <PIChart />
     </>
   );
 };
