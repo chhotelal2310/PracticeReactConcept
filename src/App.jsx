@@ -350,6 +350,7 @@ import BarChart from "./Pages/BarCharPractices/BarChart";
 import LineChart from "./Pages/BarCharPractices/LineChart";
 import AreaChart from "./Pages/BarCharPractices/AreaChart";
 import PIChart from "./Pages/BarCharPractices/PIchart";
+import SimpleLineChart from "./Pages/ChartPart-2/SimpleLineChart";
 
 const App = () => {
   return (
@@ -357,7 +358,8 @@ const App = () => {
       {/* <BarChart /> */}
       {/* <LineChart /> */}
       {/* <AreaChart /> */}
-      <PIChart />
+      {/* <PIChart /> */}
+      <SimpleLineChart />
     </>
   );
 };
