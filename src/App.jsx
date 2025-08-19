@@ -263,104 +263,183 @@ export default App;
 
 /*************************************** Redux ************************/
 
-// import React from "react";
-// import Counter from "./Pages/redux/Counter";
+/*
+const App = () => {
+  const users = Array.from({ length: 200 }, (_, i) => ({
+    id: i + 1,
+    name: `User${i + 1}`,
+    email: `user${i + 1}@example.com`,
+    role: ["Admin", "Editor", "Viewer"][i % 3], // Rotate roles
+  }));
 
-// const App = () => {
-//   //   const users = [
-//   //   { id: 1, name: "Alice", email: "alice@example.com", role: "Admin" },
-//   //   { id: 2, name: "Bob", email: "bob@example.com", role: "Editor" },
-//   //   { id: 3, name: "Charlie", email: "charlie@example.com", role: "Viewer" },
-//   // ];
-//   const users = Array.from({ length: 200 }, (_, i) => ({
-//     id: i + 1,
-//     name: `User${i + 1}`,
-//     email: `user${i + 1}@example.com`,
-//     role: ["Admin", "Editor", "Viewer"][i % 3], // Rotate roles
-//   }));
+  console.log(users);
 
-//   console.log(users);
+  return (
+    <>
+       <div className="p-4">
+      <div
+        className="overflow-x-auto w-full max-h-100
+          [&::-webkit-scrollbar]:h-4
+          [&::-webkit-scrollbar]:w-3
+          [&::-webkit-scrollbar-track]:bg-gray-200
+          [&::-webkit-scrollbar-thumb]:bg-gray-400
+          [&::-webkit-scrollbar-thumb]:rounded-full"
+      >
+        <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm">
+          <thead className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200">
+            <tr>
+              <th className="px-4 py-3 text-left">ID</th>
+              <th className="px-4 py-3 text-left">Name</th>
+              <th className="px-4 py-3 text-left">Email</th>
+              <th className="px-4 py-3 text-left">Role</th>
+            </tr>
+          </thead>
+          <tbody className="text-gray-700 dark:text-gray-300">
+            {users.map((user) => (
+              <tr key={user.id} className="border-t border-gray-200 dark:border-gray-700">
+                <td className="px-4 py-2">{user.id}</td>
+                <td className="px-4 py-2">{user.name}</td>
+                <td className="px-4 py-2">{user.email}</td>
+                <td className="px-4 py-2">{user.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div> 
+    </>
+  );
+};
 
-//   return (
-//     <>
-//       {/* <Counter /> */}
-
-//       {/* <div className="p-4">
-//       <div
-//         className="overflow-x-auto w-full max-h-100
-//           [&::-webkit-scrollbar]:h-4
-//           [&::-webkit-scrollbar]:w-3
-//           [&::-webkit-scrollbar-track]:bg-gray-200
-//           [&::-webkit-scrollbar-thumb]:bg-gray-400
-//           [&::-webkit-scrollbar-thumb]:rounded-full"
-//       >
-//         <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm">
-//           <thead className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200">
-//             <tr>
-//               <th className="px-4 py-3 text-left">ID</th>
-//               <th className="px-4 py-3 text-left">Name</th>
-//               <th className="px-4 py-3 text-left">Email</th>
-//               <th className="px-4 py-3 text-left">Role</th>
-//             </tr>
-//           </thead>
-//           <tbody className="text-gray-700 dark:text-gray-300">
-//             {users.map((user) => (
-//               <tr key={user.id} className="border-t border-gray-200 dark:border-gray-700">
-//                 <td className="px-4 py-2">{user.id}</td>
-//                 <td className="px-4 py-2">{user.name}</td>
-//                 <td className="px-4 py-2">{user.email}</td>
-//                 <td className="px-4 py-2">{user.role}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//     </div> */}
-//     </>
-//   );
-// };
-
-// export default App;
+export default App;
+*/
 
 /************************************* Sopping Card Application ********************************** */
 
-// import { Route, Routes } from "react-router-dom";
-// import Navbar from "./Pages/ShoppingApplication/components/Navbar";
+/*
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./Pages/ShoppingApplication/components/Navbar";
 
-// import Home from "./Pages/ShoppingApplication/Pages/Home";
-// import CardDetails from "./Pages/ShoppingApplication/Pages/CardDetails";
+import Home from "./Pages/ShoppingApplication/Pages/Home";
+import CardDetails from "./Pages/ShoppingApplication/Pages/CardDetails";
+const App = () => {
+  return (
+    <>
+      <div>
+        <Navbar />
+      </div>
+       <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/card" element={<CardDetails />} />
+        </Routes>
+    </>
+  );
+};
+
+export default App;
+*/
+
+// import { useState } from "react";
+// import { DatePicker } from "rsuite";
+// import "rsuite/dist/rsuite.min.css";
+// import moment from "moment";
+
 // const App = () => {
+//   const [selectedDate, setSelectedDate] = useState(null);
+//   console.log(
+//     selectedDate,
+//     "selectedDate>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+//   );
+//   const predefinedBottomRanges = [
+//     {
+//       label: (
+//         <div
+//           className="border px-2.5 py-1 rounded-lg -mt-1 bg-[#2589F5] text-white font-medium cursor-pointer"
+//           onClick={() => {
+//             setSelectedDate(null);
+//           }}
+//         >
+//           CLEAR
+//         </div>
+//       ),
+//       closeOverlay: false,
+//       value: () => null,
+//       /****************This will clear the date when shortcut is used*********************/
+//     },
+//   ];
+
 //   return (
-//     <>
+//     <div className="w-full flex justify-center items-center h-screen">
 //       <div>
-//         <Navbar />
+//         <DatePicker
+//           format="dd/MM/yyyy hh:mm aa"
+//           showMeridiem
+//           ranges={predefinedBottomRanges}
+//           cleanable={false}
+//           style={{ width: 265 }}
+//           value={selectedDate}
+//           minValue={moment().toDate()}
+//           onChange={setSelectedDate}
+//           onShortcutClick={(shortcut, event) => {
+//             console.log(shortcut, "Shortcut clicked");
+//             /***************The shortcut's value function will be called automatically******************/
+//           }}
+//         />
 //       </div>
-//        <Routes>
-//           <Route path="/" element={<Home/>}/>
-//           <Route path="/card" element={<CardDetails />} />
-//         </Routes>
-//     </>
+//     </div>
 //   );
 // };
 
 // export default App;
 
-import React from "react";
-import BarChart from "./Pages/BarCharPractices/BarChart";
-import LineChart from "./Pages/BarCharPractices/LineChart";
-import AreaChart from "./Pages/BarCharPractices/AreaChart";
-import PIChart from "./Pages/BarCharPractices/PIchart";
-import SimpleLineChart from "./Pages/ChartPart-2/SimpleLineChart";
+import { useState } from "react";
+import { DatePicker } from "rsuite";
+import "rsuite/dist/rsuite.min.css";
 
 const App = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  console.log(selectedDate, "selectedDate");
+
+  const predefinedBottomRanges = [
+    {
+      label: (
+        <div
+          className="border px-2.5 py-1 rounded-lg -mt-1 bg-[#2589F5] text-white font-medium cursor-pointer hover:bg-blue-600 transition-colors"
+          onClick={() => {
+            setSelectedDate(null);
+          }}
+        >
+          CLEAR
+        </div>
+      ),
+      closeOverlay: false,
+      value: () => null,
+    },
+  ];
+
+  const currentDate = new Date();
+  const disabledDate = (date) => {
+    return date < currentDate;
+  };
+
   return (
-    <>
-      {/* <BarChart /> */}
-      {/* <LineChart /> */}
-      {/* <AreaChart /> */}
-      {/* <PIChart /> */}
-      <SimpleLineChart />
-    </>
+    <div className="w-full flex justify-center items-center h-screen">
+      <div>
+        <DatePicker
+          format="dd/MM/yyyy hh:mm aa"
+          showMeridiem
+          ranges={predefinedBottomRanges}
+          cleanable={false}
+          style={{ width: 265 }}
+          value={selectedDate}
+          onChange={setSelectedDate}
+          shouldDisableDate={disabledDate}
+          onShortcutClick={(shortcut) => {
+            console.log(shortcut, "Shortcut clicked");
+          }}
+        />
+      </div>
+    </div>
   );
 };
 

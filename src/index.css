@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playwrite+DE+VA+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap");
 @import "tailwindcss";
-
+@import "rsuite/dist/rsuite.css";
 @theme {
   --font-roboto: "Roboto Serif", serif;
   --color-main: #8161cc;
@@ -50,4 +50,64 @@ input[type="number"] {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Remove underline from the clear button */
+.rs-btn {
+  text-decoration: none !important;
+}
+
+.rs-btn:hover {
+  text-decoration: none !important;
+}
+
+/* Or more specifically */
+.rs-picker-toolbar-ranges .rs-btn {
+  text-decoration: none !important;
+}
+
+.rs-picker-toolbar-ranges .rs-btn:hover {
+  text-decoration: none !important;
+}
+
+.clear-btn-no-underline {
+  text-decoration: none !important;
+}
+
+/* DatePickerStyles.css */
+.rs-calendar-table-cell-disabled .rs-calendar-table-cell-content {
+  text-decoration: none !important;
+  opacity: 0.3;
+}
+
+.rs-calendar-month-dropdown-year-active
+  .rs-calendar-month-dropdown-cell-content {
+  text-decoration: none !important;
+}
+
+.rs-calendar-table-cell-disabled {
+  text-decoration: none !important;
+}
+
+.rs-calendar-month-dropdown-cell-disabled
+  .rs-calendar-month-dropdown-cell-content {
+  text-decoration: none !important;
+  opacity: 0.3;
+}
+
+/* Remove strikethrough from all disabled calendar elements */
+.rs-calendar-table-cell-disabled .rs-calendar-table-cell-content,
+.rs-calendar-month-dropdown-cell-disabled
+  .rs-calendar-month-dropdown-cell-content,
+.rs-calendar-table-cell-disabled,
+.rs-calendar-month-dropdown-year-active
+  .rs-calendar-month-dropdown-cell-content {
+  text-decoration: none !important;
+}
+
+/* Optional: Adjust opacity for better visual */
+.rs-calendar-table-cell-disabled .rs-calendar-table-cell-content,
+.rs-calendar-month-dropdown-cell-disabled
+  .rs-calendar-month-dropdown-cell-content {
+  opacity: 0.3;
 }
