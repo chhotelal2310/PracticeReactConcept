@@ -24,6 +24,9 @@ const App = () => {
 export default App;
 */
 
+import moment from "moment/moment";
+import { ALCountryStateCity } from "./Pages/ChartPart-2/SimpleLineChart";
+
 /************************* Reading props in event handlers***************/
 /*
 import React from "react";
@@ -339,63 +342,30 @@ const App = () => {
 export default App;
 */
 
-// import { useState } from "react";
-// import { DatePicker } from "rsuite";
-// import "rsuite/dist/rsuite.min.css";
-// import moment from "moment";
+/*
+const App = () => {
+  return (
+    <div>
+      <ALCountryStateCity />
+    </div>
+  );
+};
 
-// const App = () => {
-//   const [selectedDate, setSelectedDate] = useState(null);
-//   console.log(
-//     selectedDate,
-//     "selectedDate>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-//   );
-//   const predefinedBottomRanges = [
-//     {
-//       label: (
-//         <div
-//           className="border px-2.5 py-1 rounded-lg -mt-1 bg-[#2589F5] text-white font-medium cursor-pointer"
-//           onClick={() => {
-//             setSelectedDate(null);
-//           }}
-//         >
-//           CLEAR
-//         </div>
-//       ),
-//       closeOverlay: false,
-//       value: () => null,
-//       /****************This will clear the date when shortcut is used*********************/
-//     },
-//   ];
+export default App;
+*/
 
-//   return (
-//     <div className="w-full flex justify-center items-center h-screen">
-//       <div>
-//         <DatePicker
-//           format="dd/MM/yyyy hh:mm aa"
-//           showMeridiem
-//           ranges={predefinedBottomRanges}
-//           cleanable={false}
-//           style={{ width: 265 }}
-//           value={selectedDate}
-//           minValue={moment().toDate()}
-//           onChange={setSelectedDate}
-//           onShortcutClick={(shortcut, event) => {
-//             console.log(shortcut, "Shortcut clicked");
-//             /***************The shortcut's value function will be called automatically******************/
-//           }}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;
-
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/*
 import { useState } from "react";
 import { DatePicker } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
-
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   console.log(selectedDate, "selectedDate");
@@ -404,7 +374,7 @@ const App = () => {
     {
       label: (
         <div
-          className="border px-2.5 py-1 rounded-lg -mt-1 bg-[#2589F5] text-white font-medium cursor-pointer hover:bg-blue-600 transition-colors"
+          className="border px-2.5 py-1 rounded-lg -mt-1 bg-[#2589F5] text-white font-medium cursor-pointer hover:bg-blue-500 transition-colors"
           onClick={() => {
             setSelectedDate(null);
           }}
@@ -417,11 +387,10 @@ const App = () => {
     },
   ];
 
-  const currentDate = new Date();
-  const disabledDate = (date) => {
-    return date < currentDate;
+  const disabledDate = (current) => {
+    const today = moment().startOf("day");
+    return moment(current).isBefore(today);
   };
-
   return (
     <div className="w-full flex justify-center items-center h-screen">
       <div>
@@ -441,6 +410,15 @@ const App = () => {
       </div>
     </div>
   );
+};
+
+export default App;
+*/
+
+import React from "react";
+
+const App = () => {
+  return <div>App</div>;
 };
 
 export default App;

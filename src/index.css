@@ -52,6 +52,14 @@ input[type="number"] {
   }
 }
 
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************/
 /* Remove underline from the clear button */
 .rs-btn {
   text-decoration: none !important;
@@ -61,7 +69,6 @@ input[type="number"] {
   text-decoration: none !important;
 }
 
-/* Or more specifically */
 .rs-picker-toolbar-ranges .rs-btn {
   text-decoration: none !important;
 }
@@ -95,19 +102,10 @@ input[type="number"] {
   opacity: 0.3;
 }
 
-/* Remove strikethrough from all disabled calendar elements */
-.rs-calendar-table-cell-disabled .rs-calendar-table-cell-content,
-.rs-calendar-month-dropdown-cell-disabled
-  .rs-calendar-month-dropdown-cell-content,
-.rs-calendar-table-cell-disabled,
-.rs-calendar-month-dropdown-year-active
-  .rs-calendar-month-dropdown-cell-content {
+/* 🎨 Make all months yellow */
+.rs-calendar-month-dropdown .rs-calendar-month-dropdown-cell-content {
+  /* color: !important; */
   text-decoration: none !important;
-}
-
-/* Optional: Adjust opacity for better visual */
-.rs-calendar-table-cell-disabled .rs-calendar-table-cell-content,
-.rs-calendar-month-dropdown-cell-disabled
-  .rs-calendar-month-dropdown-cell-content {
-  opacity: 0.3;
+  /* font-weight: 600;  */
+  /* optional: make them bold */
 }

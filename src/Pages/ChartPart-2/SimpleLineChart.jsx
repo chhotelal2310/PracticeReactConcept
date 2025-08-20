@@ -355,217 +355,44 @@
 // //   );
 // // }
 
-// import React, { useMemo, useState } from "react";
-// import { Country, State, City } from "country-state-city";
-// const SimpleLineChart = () => {
-//   const [stateCode, setISstateCode] = useState("UP");
-//   const CountryStateCity = useMemo(() => {
-//     const Country = "India";
-//     const AllStates = State.getStatesOfCountry("IN");
-//     const AllCity = City.getCitiesOfCountry("IN");
-//     // const AllCity = City.getCitiesOfState("IN", stateCode);
-//     return { Country, AllStates, AllCity };
-//   }, []);
+import { useMemo, useState } from "react";
+import { Country, State, City } from "country-state-city";
+export const ALCountryStateCity = () => {
+  const [stateCode, setISstateCode] = useState("UP");
 
-//   console.log(
-//     CountryStateCity?.Country,
-//     "Country>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-//   );
-//   console.log(
-//     CountryStateCity?.AllStates,
-//     "Country>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-//   );
-//   console.log(
-//     CountryStateCity?.AllCity,
-//     "All City>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-//   );
+  const CountryStateCity = useMemo(() => {
+    const Country = "India";
+    const AllStates = State.getStatesOfCountry("IN");
+    // const AllCity = City.getCitiesOfCountry("IN");
+    const AllCity = City.getCitiesOfState("IN", stateCode);
+    return { Country, AllStates, AllCity };
+  }, []);
 
-//   return (
-//     <div className="flex justify-center items-center w-screen h-screen">
-//       <div>
-//         <button
-//           className="border bg-blue-400 px-16 py-2 rounded-lg cursor-pointer"
-//           onClick={() => {
-//             setISstateCode("DL");
-//           }}
-//         >
-//           Gell all CITY
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SimpleLineChart;
-
-import React, { useState } from "react";
-import { format } from "date-fns";
-
-const DateTimePicker = ({ onChange }) => {
-  const [open, setOpen] = useState(false);
-  const [view, setView] = useState("date"); // "date" or "time"
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [tempDate, setTempDate] = useState(new Date());
-
-  const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
-
-  const handleDayClick = (day) => {
-    const newDate = new Date(
-      tempDate.getFullYear(),
-      tempDate.getMonth(),
-      day,
-      tempDate.getHours(),
-      tempDate.getMinutes()
-    );
-    setTempDate(newDate);
-  };
-
-  const handleTimeChange = (e) => {
-    const { name, value } = e.target;
-    const newDate = new Date(tempDate);
-    if (name === "hours") newDate.setHours(value);
-    if (name === "minutes") newDate.setMinutes(value);
-    setTempDate(newDate);
-  };
-
-  const handleOk = () => {
-    setSelectedDate(tempDate);
-    setOpen(false);
-    onChange?.(tempDate);
-  };
+  console.log(
+    CountryStateCity?.Country,
+    "Country>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  );
+  console.log(
+    CountryStateCity?.AllStates,
+    "Country>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  );
+  console.log(
+    CountryStateCity?.AllCity,
+    "All City>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  );
 
   return (
-    <div className="w-full">
-      {/* Input Field */}
-      <button
-        onClick={() => setOpen(true)}
-        className="w-full px-4 py-2 border rounded-lg bg-gray-100 text-left"
-      >
-        {format(selectedDate, "EEE, MMM d yyyy, HH:mm")}
-      </button>
-
-      {/* Picker Modal */}
-      {open && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-gray-900 text-white rounded-2xl w-96 shadow-lg overflow-hidden">
-            {/* Header */}
-            <div className="px-6 py-4 border-b border-gray-700">
-              <p className="text-xs uppercase text-gray-400">Select {view}</p>
-              <h2 className="text-2xl font-semibold">
-                {format(tempDate, "EEE, MMM d")}
-              </h2>
-            </div>
-
-            {/* Date View */}
-            {view === "date" && (
-              <div className="p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <button
-                    onClick={() =>
-                      setTempDate(
-                        new Date(
-                          tempDate.getFullYear(),
-                          tempDate.getMonth() - 1,
-                          tempDate.getDate()
-                        )
-                      )
-                    }
-                  >
-                    ◀
-                  </button>
-                  <span className="font-semibold">
-                    {format(tempDate, "MMMM yyyy")}
-                  </span>
-                  <button
-                    onClick={() =>
-                      setTempDate(
-                        new Date(
-                          tempDate.getFullYear(),
-                          tempDate.getMonth() + 1,
-                          tempDate.getDate()
-                        )
-                      )
-                    }
-                  >
-                    ▶
-                  </button>
-                </div>
-                {/* Days */}
-                <div className="grid grid-cols-7 gap-1 text-center">
-                  {["S", "M", "T", "W", "T", "F", "S"].map((d) => (
-                    <div key={d} className="text-gray-400 text-sm">
-                      {d}
-                    </div>
-                  ))}
-                  {Array.from({
-                    length: daysInMonth(
-                      tempDate.getFullYear(),
-                      tempDate.getMonth()
-                    ),
-                  }).map((_, i) => {
-                    const day = i + 1;
-                    const isSelected = day === tempDate.getDate();
-                    return (
-                      <button
-                        key={day}
-                        onClick={() => handleDayClick(day)}
-                        className={`p-2 rounded-full ${
-                          isSelected
-                            ? "bg-blue-500 text-white"
-                            : "hover:bg-gray-700"
-                        }`}
-                      >
-                        {day}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Time View */}
-            {view === "time" && (
-              <div className="p-6 flex justify-around">
-                <div className="flex flex-col items-center">
-                  <label className="text-xs">Hours</label>
-                  <input
-                    type="number"
-                    name="hours"
-                    value={tempDate.getHours()}
-                    onChange={handleTimeChange}
-                    className="w-16 text-black rounded-lg p-2 text-center"
-                  />
-                </div>
-                <div className="flex flex-col items-center">
-                  <label className="text-xs">Minutes</label>
-                  <input
-                    type="number"
-                    name="minutes"
-                    value={tempDate.getMinutes()}
-                    onChange={handleTimeChange}
-                    className="w-16 text-black rounded-lg p-2 text-center"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Footer Actions */}
-            <div className="flex justify-between px-6 py-4 border-t border-gray-700 text-sm">
-              <button onClick={() => setTempDate(new Date())}>CLEAR</button>
-              <div className="flex gap-4">
-                <button onClick={() => setOpen(false)}>CANCEL</button>
-                {view === "date" ? (
-                  <button onClick={() => setView("time")}>OK</button>
-                ) : (
-                  <button onClick={handleOk}>OK</button>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+    <div className="flex justify-center items-center w-screen h-screen">
+      <div>
+        <button
+          className="border bg-blue-400 px-16 py-2 rounded-lg cursor-pointer"
+          onClick={() => {
+            setISstateCode("DL");
+          }}
+        >
+          Gell all CITY
+        </button>
+      </div>
     </div>
   );
 };
-
-export default DateTimePicker;
