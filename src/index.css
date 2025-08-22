@@ -118,30 +118,3 @@ input[type="number"] {
 /**************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************/
 /************************************************************************** Range Date Picker *****************************************************************/
-
-.rs-picker-daterange .rs-calendar-table-cell-in-range::before {
-  background-color: #ffeb3b !important;
-  opacity: 0.3;
-}
-
-.rs-picker-daterange .rs-calendar-table-cell-selected {
-  background-color: #ff9800 !important;
-  color: white !important;
-}
-
-.rs-picker-daterange .rs-calendar-table-cell-in-range:hover {
-  background-color: #ffd54f !important;
-}
-
-.rs-picker-toolbar-right-btn-ok {
-  background-color: #ffc107 !important;
-  color: black !important;
-}
-
-.rs-picker-daterange-menu
-  .rs-calendar-cell-day
-  .rs-calendar-table-cell-content {
-  color: #333 !important;
-  z-index: 1;
-  position: relative;
-}
