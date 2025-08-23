@@ -53,7 +53,7 @@ const OTP = () => {
           </div>
         </div>
         <div className="mt-5 w-full ">
-          <button className="w-full py-2 outline-2 outline-offset-2 outline-solid.">
+          <button className="w-full py-2 border-8 cursor-not-allowed">
             <span className="font-roboto font-semibold">Verify OTP</span>
           </button>
         </div>
