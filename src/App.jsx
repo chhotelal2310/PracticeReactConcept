@@ -359,19 +359,18 @@ export default App;
 /**************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************/
-import React from "react";
 import NormalDatePicker from "./Pages/Components/DatePicker/NormalDatePicker";
 import DatePickerWithDiablelessCurrentDate from "./Pages/Components/DatePicker/DatePickerWithDiablelessCurrentDate";
 import RangeDatePiker1 from "./Pages/Components/DatePicker/RangeDatePiker1";
+
 import OTP from "./Pages/Components/Otp/OTP";
 
 const App = () => {
   return (
     <>
-      {/* <NormalDatePicker /> */}
-      {/* <DatePickerWithDiablelessCurrentDate /> */}
-      {/* <RangeDatePiker1 /> */}
-
+      {/* <NormalDatePicker />
+      <DatePickerWithDiablelessCurrentDate />
+      <RangeDatePiker1 /> */}
       <OTP />
     </>
   );

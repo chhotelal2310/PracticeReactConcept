@@ -1,6 +1,7 @@
 import { DateRangePicker } from "rsuite";
 import { FaRegCalendarAlt } from "react-icons/fa";
-import "rsuite/dist/rsuite.min.css";
+import "rsuite/dist/rsuite-no-reset.min.css";
+
 import { startOfDay, endOfDay, addDays, subDays } from "date-fns";
 
 const myRanges = [

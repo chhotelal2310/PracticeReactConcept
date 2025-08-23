@@ -1,5 +1,4 @@
-import { FastField } from "formik";
-import React, { useState } from "react";
+import { useState } from "react";
 import { OtpInput } from "reactjs-otp-input";
 
 const OTP = () => {
@@ -8,12 +7,12 @@ const OTP = () => {
 
   return (
     <div className="flex justify-center items-center w-full h-screen">
-      <div className="flex flex-col justify-center items-center">
-        <span className="text-center mb-4 text-base font-medium font-roboto">
+      <div className="flex  flex-col justify-center items-center">
+        <span className="text-center mb-14 text-base font-medium font-roboto">
           Enter the 6 digit OTP sent on your mobile <br />
           number +91******7348
         </span>
-        <div>
+        <div className="w-full">
           <OtpInput
             value={otp}
             onChange={(otp) => setOtp(otp)}
@@ -24,8 +23,7 @@ const OTP = () => {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              gap: 5,
-              // backgroundColor: "green",
+              gap: 12,
             }}
             // the below style apply on each input box
             inputStyle={{
@@ -36,13 +34,9 @@ const OTP = () => {
               fontSize: "18px",
               color: "#A8A8A8",
               border: "1px solid gray",
-              outline: "none", // This prevents the default browser outline
+              outline: "none",
+              fontWeight: "600",
             }}
-            focusStyle={
-              {
-                // border: "2px solid #A8A8A8",
-              }
-            }
             // isDisabled={true} // disable all input fields
             shouldAutoFocus={false}
             isInputNum={true}
@@ -52,8 +46,8 @@ const OTP = () => {
             <span className="cursor-pointer">Resend OTP</span> In 00:34s
           </div>
         </div>
-        <div className="mt-5 w-full ">
-          <button className="w-full py-2 border-8 cursor-not-allowed">
+        <div className="mt-8 w-full">
+          <button className="w-full py-2 border rounded-md cursor-pointer border-gray-100 bg-blue-300 px-1">
             <span className="font-roboto font-semibold">Verify OTP</span>
           </button>
         </div>

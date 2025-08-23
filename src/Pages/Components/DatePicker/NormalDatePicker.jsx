@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DatePicker } from "rsuite";
-import "rsuite/dist/rsuite.min.css";
+import "rsuite/dist/rsuite-no-reset.min.css";
 
 const NormalDatePicker = () => {
   const [selectedDate, setSelectedDate] = useState(null);
