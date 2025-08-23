@@ -369,9 +369,10 @@ const App = () => {
   return (
     <>
       {/* <NormalDatePicker /> */}
-      <DatePickerWithDiablelessCurrentDate />
+      {/* <DatePickerWithDiablelessCurrentDate /> */}
       {/* <RangeDatePiker1 /> */}
-      {/* <OTP /> */}
+
+      <OTP />
     </>
   );
 };
