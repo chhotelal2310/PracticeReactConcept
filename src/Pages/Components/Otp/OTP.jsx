@@ -1,9 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OtpInput } from "reactjs-otp-input";
+import { useTimer } from "react-timer-hook";
+import moment from "moment";
 
 const OTP = () => {
   const [otp, setOtp] = useState("");
+  const [startTimer, setIsstartTimer] = useState(false);
+  const [IsRunningTimer, setIsRunningTimer] = useState(false);
   console.log(otp, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+  const {
+    seconds: numberSeconds,
+    minutes: numberMinutes,
+    restart: numberRestart,
+  } = useTimer({
+    expiryTimestamp: new Date(moment().add(1, "minute").toLocaleString()),
+    autoStart: false,
+    onExpire: () => {
+      setIsRunningTimer((Prev) => !Prev);
+      localStorage.removeIteme("otp-first-visit");
+    },
+  });
+
+  useEffect(() => {
+    const isFirstVisit = localStorage.getItem("otp-first-visit");
+    if (!isFirstVisit && !IsRunningTimer) {
+      numberRestart(new Date(moment().add(2, "minute").toLocaleString()));
+      localStorage.setItem("otp-first-visit", "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    numberRestart(new Date(moment().add(1, "minute").toLocaleString()));
+  }, [IsRunningTimer]);
+
+  console.log(IsRunningTimer, "IsRunning>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
   return (
     <div className="flex justify-center items-center w-full h-screen">
@@ -42,8 +73,31 @@ const OTP = () => {
             isInputNum={true}
             // placeholder="otplll"
           />
-          <div className="w-full text-right font-roboto font-semibold  mt-1">
-            <span className="cursor-pointer">Resend OTP</span> In 00:34s
+          <div className="w-full text-right font-roboto font-semibold mt-1">
+            <span
+              className="cursor-pointer"
+              onClick={() => setIsRunningTimer(false)}
+            >
+              Resend OTP
+            </span>
+            {/* {(numberSeconds > 0 || numberMinutes > 0) && (
+              <span>
+                {" "}
+                In{" "}
+                {`${String(numberMinutes).padStart(1, "0")}:${String(
+                  numberSeconds
+                ).padStart(2, "0")}s`}
+              </span>
+            )} */}
+            {!IsRunningTimer && (
+              <span>
+                {" "}
+                In{" "}
+                {`${String(numberMinutes).padStart(1, "0")}:${String(
+                  numberSeconds
+                ).padStart(2, "0")}s`}
+              </span>
+            )}
           </div>
         </div>
         <div className="mt-8 w-full">
