@@ -5,7 +5,6 @@ import moment from "moment";
 
 const OTP = () => {
   const [otp, setOtp] = useState("");
-  const [startTimer, setIsstartTimer] = useState(false);
   const [IsRunningTimer, setIsRunningTimer] = useState(false);
   console.log(otp, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
@@ -15,7 +14,6 @@ const OTP = () => {
     restart: numberRestart,
   } = useTimer({
     expiryTimestamp: new Date(moment().add(1, "minute").toLocaleString()),
-    autoStart: false,
     onExpire: () => {
       setIsRunningTimer((Prev) => !Prev);
       localStorage.removeIteme("otp-first-visit");
@@ -27,6 +25,7 @@ const OTP = () => {
     if (!isFirstVisit && !IsRunningTimer) {
       numberRestart(new Date(moment().add(2, "minute").toLocaleString()));
       localStorage.setItem("otp-first-visit", "true");
+      alert("Hello");
     }
   }, []);
 
